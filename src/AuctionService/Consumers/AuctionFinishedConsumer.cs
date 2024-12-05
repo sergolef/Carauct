@@ -22,7 +22,7 @@ namespace AuctionService.Consumers
         {
             Console.WriteLine("--> Consuming auction finish"); 
 
-            var auction = await _auctionDbContext.Auctions.FindAsync(context.Message.AuctionId);
+            var auction = await _auctionDbContext.Auctions.FindAsync(Guid.Parse(context.Message.AuctionId));
 
             if (context.Message.ItemSold)
             {

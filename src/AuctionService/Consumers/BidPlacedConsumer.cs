@@ -21,7 +21,7 @@ namespace AuctionService.Consumers
         {
             Console.WriteLine("--> Consuming auction bid placed");
 
-            var auction = await _auctionDbContext.Auctions.FindAsync(context.Message.AuctionId);
+            var auction = await _auctionDbContext.Auctions.FindAsync(Guid.Parse(context.Message.AuctionId));
 
             // check if bid greater than previouse bid
             if (auction.CurrentHighBid == null
