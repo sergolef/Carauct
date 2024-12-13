@@ -9,8 +9,10 @@ COPY src/AuctionService/AuctionService.csproj src/AuctionService/AuctionService.
 COPY src/SearchService/SearchService.csproj src/SearchService/SearchService.csproj
 COPY src/GatewayService/GatewayService.csproj src/GatewayService/GatewayService.csproj
 COPY src/BiddingService/BiddingService.csproj src/BiddingService/BiddingService.csproj
+
 COPY src/Contracts/Contracts.csproj src/Contracts/Contracts.csproj
 COPY src/IdentityServer/IdentityServer.csproj src/IdentityServer/IdentityServer.csproj
+COPY src/NotificationService/NotificationService.csproj src/NotificationService/NotificationService.csproj
 
 #restore package deps
 RUN dotnet restore Carauct.sln

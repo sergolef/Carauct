@@ -18,9 +18,10 @@ COPY src/NotificationService/NotificationService.csproj src/NotificationService/
 RUN dotnet restore Carauct.sln
 
 #Copy the app folders over
-COPY src/IdentityServer src/IdentityServer
+COPY src/NotificationService src/NotificationService
+COPY src/Contracts src/Contracts
 
-WORKDIR /app/src/IdentityServer 
+WORKDIR /app/src/NotificationService 
 
 RUN dotnet publish -c Release -o /app/src/out
 
@@ -28,4 +29,4 @@ RUN dotnet publish -c Release -o /app/src/out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/src/out .
-ENTRYPOINT [ "dotnet", "IdentityServer.dll" ]
+ENTRYPOINT [ "dotnet", "NotificationService.dll" ]
